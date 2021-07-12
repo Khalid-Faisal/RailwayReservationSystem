@@ -1,0 +1,257 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Railway Management System",
+        "description": "Swagger documentation for Railway Managment System",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "RRSystem"
+                ],
+                "summary": "Get all trains lists",
+                "responses": {
+                    "200": {
+                        "description": "Successful!",
+                        "message": "Successful!"
+                    },
+                    "400": {
+                        "description": "Failed!",
+                        "message": "Error!"
+                    }
+                }
+            }
+        },
+        "/availability": {
+            "get": {
+                "tags": [
+                    "RRSystem"
+                ],
+                "summary": "Get available seats in all trains",
+                "responses": {
+                    "200": {
+                        "description": "Successful!",
+                        "message": "Successful!"
+                    },
+                    "400": {
+                        "description": "Failed!",
+                        "message": "Error!"
+                    }
+                }
+            }
+        },
+        "/stopStations": {
+            "post": {
+                "tags": [
+                    "RRSystem"
+                ],
+                "summary": "Get stations where train whose id is provided will stop",
+                "description": "Get stations where train whose id is provided will stop",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "Get stations where train whose id is provided will stop",
+                        "schema": {
+                            "required": [
+                                "trainNo"
+                            ],
+                            "properties": {
+                                "trainNo": {
+                                    "type": "integer",
+                                    "example": 2809
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful!",
+                        "message": "Successful!"
+                    },
+                    "400": {
+                        "description": "Failed!",
+                        "message": "Error!"
+                    }
+                }
+            }
+        },
+        "/passengers": {
+            "post": {
+                "tags": [
+                    "RRSystem"
+                ],
+                "summary": "Get passenger lists of given train number",
+                "description": "Get passenger lists of given train number",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "Get passenger lists of given train number",
+                        "schema": {
+                            "required": [
+                                "trainNo"
+                            ],
+                            "properties": {
+                                "trainNo": {
+                                    "type": "integer",
+                                    "example": 2809
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful!",
+                        "message": "Successful!"
+                    },
+                    "400": {
+                        "description": "Failed!",
+                        "message": "Error!"
+                    }
+                }
+            }
+        },
+        "/book": {
+            "post": {
+                "tags": [
+                    "RRSystem"
+                ],
+                "summary": "Reserve a ticket for passenger",
+                "description": "Reserve a ticket for passenger",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "Reserve a ticket for passenger",
+                        "schema": {
+                            "required": [
+                                "name",
+                                "age",
+                                "from",
+                                "to",
+                                "fare",
+                                "trainNumber",
+                                "seatNumber"
+                            ],
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "Khalid Faisal"
+                                },
+                                "age": {
+                                    "type": "integer",
+                                    "example": 23
+                                },
+                                "to": {
+                                    "type": "string",
+                                    "example": "CSMT"
+                                },
+                                "from": {
+                                    "type": "string",
+                                    "example": "HWH"
+                                },
+                                "fare": {
+                                    "type": "float",
+                                    "example": 4920.0
+                                },
+                                "trainNumber": {
+                                    "type": "integer",
+                                    "example": 2809
+                                },
+                                "seatNumber": {
+                                    "type": "string",
+                                    "example": "B3-25"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful!",
+                        "message": "Successful!"
+                    },
+                    "400": {
+                        "description": "Failed!",
+                        "message": "Error!"
+                    }
+                }
+            }
+        },
+        "/cancel": {
+            "post": {
+                "tags": [
+                    "RRSystem"
+                ],
+                "summary": "Cancels the ticket whose PNR is provided",
+                "description": "Cancels the ticket whose PNR is provided",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "Cancels the ticket whose PNR is provided",
+                        "schema": {
+                            "required": [
+                                "pnr"
+                            ],
+                            "properties": {
+                                "pnr": {
+                                    "type": "integer",
+                                    "example": 7
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful!",
+                        "message": "Successful!"
+                    },
+                    "400": {
+                        "description": "Failed!",
+                        "message": "Error!"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "RRSystem",
+            "description": "API for Railway Management System"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ]
+}
